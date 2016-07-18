@@ -16,14 +16,14 @@ Defining Proxy Server Values
 
 """
 
-http_proxy  = "http://username:password@proxyip:proxyport/"   
-https_proxy = "https://username:password@proxyip:proxyport/"
+# http_proxy  = "http://username:password@proxyip:proxyport/"   
+# https_proxy = "https://username:password@proxyip:proxyport/"
 
 
-proxyDict = { 
-              "http"  : http_proxy, 
-              "https" : https_proxy, 
-            }
+# proxyDict = { 
+#               "http"  : http_proxy, 
+#               "https" : https_proxy, 
+#             }
             
             
 def get_drugs():
@@ -34,7 +34,8 @@ def get_drugs():
     """
     kind='DRUG_KIND'
     url = 'https://rxnav.nlm.nih.gov/REST/Ndfrt/allconcepts.json?kind='+kind
-    r = requests.get(url, proxies=proxyDict)
+    r = requests.get(url)
+    #r = requests.get(url, proxies=proxyDict) #if proxy is needed
     data = r.json()
     groupConcepts = data['groupConcepts']
     target = open('drugs.txt', 'w')
