@@ -23,7 +23,8 @@ def api_call(url):
     """
 
     ans=[]
-    r = requests.get(url, proxies=proxyDict)
+    r = requests.get(url)
+    #r = requests.get(url, proxies=proxyDict) #if proxy needed
     data = r.json()
     groupConcepts = data['groupConcepts']
     try:
@@ -109,14 +110,14 @@ if __name__ == "__main__":
     lock_th=threading.Lock()
     
     
-    http_proxy  = "http://username:password@proxyip:proxyport/"   
-    https_proxy = "https://username:password@proxyip:proxyport/"
+    #http_proxy  = "http://username:password@proxyip:proxyport/"   
+    #https_proxy = "https://username:password@proxyip:proxyport/"
 
 
-    proxyDict = { 
-              "http"  : http_proxy, 
-              "https" : https_proxy, 
-                 }
+    #proxyDict = { 
+    #          "http"  : http_proxy, 
+    #          "https" : https_proxy, 
+    #             }
 
 
 
